@@ -1,0 +1,3 @@
+SELECT Id, Name, BillingCity, BillingCountry, ParentId, CreatedDate, LastModifiedDate
+FROM Account
+WHERE CreatedDate >= 2020-01-01T00:00:00Z

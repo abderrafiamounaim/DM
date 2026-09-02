@@ -1,0 +1,30 @@
+# Secrets — never commit real credentials
+.env
+*.env
+!.env.example
+
+# Data files — this repo holds code/config only, never data
+*.csv
+*.xlsx
+*.xls
+*.zip
+attachments/
+
+# Run logs / outputs (generated at runtime)
+log/runs/
+**/output/*
+!**/output/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,23 @@
+# Salesforce loading job — example template. Copy this file per object/flow
+# (e.g. job_accounts.yaml, job_contacts.yaml) and edit before each run.
+
+object: Account                  # Target Salesforce object API name
+operation: upsert                # insert | upsert | update
+external_id: Legacy_Record_ID__c # required for upsert / update — the field that
+                                  # carries the source org's record ID on the target
+csv: ../transform/output/account/accounts.csv
+
+batch_size: 50                   # records per API call (1 = safest, max 200)
+threads: 10                      # parallel workers (1 = sequential)
+limit: null                      # max rows to process — null or omit for all rows
+
+# exclude: log/runs/<previous_run>/success.csv   # optional: skip external_id values
+                                                  # already present in this CSV
+
+# ── Usage ──────────────────────────────────────────────────────────────────
+# cd load
+# uv run load_records.py jobs/job_example.yaml
+# uv run load_records.py jobs/job_example.yaml --dry-run
+# uv run load_records.py jobs/job_example.yaml --limit 5
+# uv run load_records.py jobs/job_example.yaml --resume   # skip IDs from the
+#                                                          # latest success log

@@ -1,0 +1,32 @@
+# Field scope per source Salesforce object.
+# Keys must match the source object's API name exactly (e.g. Account, Contact,
+# Opportunity, or a custom object like My_Object__c).
+# Only the fields listed here are requested in the SOQL SELECT.
+# "Id" is always included automatically even if omitted here.
+#
+# Copy this file to scopes.yaml and edit per project.
+
+Account:
+  fields:
+    - Id
+    - Name
+    - BillingCity
+    - BillingCountry
+    - BillingPostalCode
+    - ParentId
+    - OwnerId
+    - CreatedDate
+    - LastModifiedDate
+  # Optional SOQL WHERE filter, ANDed with any --since date filter.
+  # filter: "RecordType.DeveloperName = 'Customer'"
+
+Contact:
+  fields:
+    - Id
+    - FirstName
+    - LastName
+    - Email
+    - AccountId
+    - OwnerId
+    - CreatedDate
+    - LastModifiedDate
